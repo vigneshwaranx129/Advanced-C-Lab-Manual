@@ -15,8 +15,50 @@ Algorithm:
 4.	Exit the program.
  
 Program:
+#include <stdio.h>
 
-//type your code here
+int main()
+{
+    int n;
+
+    scanf("%d", &n);
+
+    switch(n)
+    {
+        case 1:
+            printf("one");
+            break;
+        case 2:
+            printf("two");
+            break;
+        case 3:
+            printf("three");
+            break;
+        case 4:
+            printf("four");
+            break;
+        case 5:
+            printf("five");
+            break;
+        case 6:
+            printf("six");
+            break;
+        case 7:
+            printf("seven");
+            break;
+        case 8:
+            printf("eight");
+            break;
+        case 9:
+            printf("nine");
+            break;
+        default:
+            printf("Greater than 9");
+    }
+
+    return 0;
+}
+
 
 
 
@@ -24,7 +66,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="1712" height="902" alt="image" src="https://github.com/user-attachments/assets/4e62cb8e-16d1-42f1-a59c-c2836a8a3013" />
+
 
 
 
@@ -46,8 +89,31 @@ Algorithm:
 6.	End
  
 Program:
+#include <stdio.h>
 
-//type your code here
+int main()
+{
+    char a[50];
+    int i, count;
+
+    scanf("%s", a);
+
+    for(i = 0; i < 4; i++)
+    {
+        count = 0;
+
+        for(int j = 0; a[j] != '\0'; j++)
+        {
+            if(a[j] == '0' + i)
+                count++;
+        }
+
+        printf("%d ", count);
+    }
+
+    return 0;
+}
+
 
 
 
@@ -55,7 +121,8 @@ Program:
 Output:
 
 
-//paste your output here
+<img width="1672" height="912" alt="image" src="https://github.com/user-attachments/assets/a565749b-350f-4180-9d93-2bb505e3f08c" />
+
 
 
 
@@ -83,16 +150,78 @@ Free the memory allocated for each string in s Free the memory allocated for s
 7.	End
  
 Program:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-//type your code here
+void swap(char *a, char *b)
+{
+    char temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+void sort(char *s, int n)
+{
+    int i, j;
+
+    for(i = 0; i < n - 1; i++)
+    {
+        for(j = i + 1; j < n; j++)
+        {
+            if(s[i] > s[j])
+                swap(&s[i], &s[j]);
+        }
+    }
+}
+
+void permute(char *s, int left, int right)
+{
+    int i;
+
+    if(left == right)
+    {
+        printf("%s\n", s);
+        return;
+    }
+
+    for(i = left; i <= right; i++)
+    {
+        swap(&s[left], &s[i]);
+        permute(s, left + 1, right);
+        swap(&s[left], &s[i]);
+    }
+}
+
+int main()
+{
+    char *s;
+    int n;
+
+    scanf("%d", &n);
+
+    s = (char *)malloc((n + 1) * sizeof(char));
+
+    scanf("%s", s);
+
+    sort(s, n);
+
+    permute(s, 0, n - 1);
+
+    free(s);
+
+    return 0;
+}
+
 
 
 
 
 Output:
+<img width="1367" height="766" alt="image" src="https://github.com/user-attachments/assets/92ae9961-c030-42d7-a0e3-cc8aea0bbec3" />
 
 
-//paste your output here
+
 
 
 
@@ -116,16 +245,50 @@ Algorithm:
 7.	End
  
 Program:
+#include <stdio.h>
 
-//type your code here
+int main()
+{
+    int n, i, j, min;
+    int len;
+
+    scanf("%d", &n);
+
+    len = n * 2 - 1;
+
+    for(i = 0; i < len; i++)
+    {
+        for(j = 0; j < len; j++)
+        {
+            min = i;
+
+            if(j < min)
+                min = j;
+
+            if(len - 1 - i < min)
+                min = len - 1 - i;
+
+            if(len - 1 - j < min)
+                min = len - 1 - j;
+
+            printf("%d ", n - min);
+        }
+
+        printf("\n");
+    }
+
+    return 0;
+}
+
 
 
 
 
 Output:
 
+<img width="1401" height="911" alt="image" src="https://github.com/user-attachments/assets/042b6bfe-a48c-42c5-bd37-4bdc8ad319e7" />
 
-//paste your output here
+
 
 
 
@@ -155,16 +318,38 @@ o	Call the square() function and display the result.
 5.	End.
 
 Program:
+#include <stdio.h>
 
-//type your code here
+int square()
+{
+    int n;
+
+    printf("Enter a number: ");
+    scanf("%d", &n);
+
+    return n * n;
+}
+
+int main()
+{
+    int result;
+
+    result = square();
+
+    printf("Square = %d", result);
+
+    return 0;
+}
+
 
 
 
 
 Output:
 
+<img width="1340" height="907" alt="image" src="https://github.com/user-attachments/assets/42a50a53-b813-4eda-9f15-c2e9d3abb22c" />
 
-//paste your output here
+
 
 
 
@@ -173,30 +358,3 @@ Output:
 
 Result:
 Thus, the program is verified successfully
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
